@@ -15,6 +15,7 @@ The website has the following users:
    |:------:|:------:|
    |bob|squarepants|
    |alice|redqueen|
+
 and an additional super user with the username: super and password: super
 ## FLAW 1: CSRF (Cross-Site Request Forgery)
 Links pinpointing to flaw 1 with fixes commented:
