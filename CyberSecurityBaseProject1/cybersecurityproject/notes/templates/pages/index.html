@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Notes application</title>
+</head>
+
+<body>
+    <h1>Notes</h1>
+    <table>
+        <tr>
+            <th>Current logged user:</th>
+            <td>{{user.username}}</td>
+        </tr>
+    </table>
+    &nbsp;
+    <form action='logout/' method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Logout" />
+    </form>
+    
+    <h2>Your notes</h2>
+    <ul>
+        {% for i in note %}
+        <li>{{i.note}}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <h2>Post additional note</h2>
+    <form action='add/' method="POST">
+        <!--FLAW 1: {% csrf_token %} should be implemented here-->
+        <input type="text" name="note" />
+        <input type="submit" value="Post" />
+    </form>
+
+
+    <h2>Change your password:</h2>
+    <form action='changepassword/' method="GET"><!--FLAW 1 & 3: should be POST-->
+        <!--FLAW 1 & 3: {% csrf_token %} should be implemented here-->
+        <input type="hidden" name="user" value="{{user.username}}" />
+        <input type="password" name="password" />
+        <input type="submit" value="accept" onclick="return confirm('Are you sure you want to change your password?')"/>
+    </form>
+     
+</body>
+
+</html>
