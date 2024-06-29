@@ -51,7 +51,7 @@ https://github.com/JoelGoose/CyberSecurityBaseProject1/blob/de95d676b61af686e618
 
 Users should not be allowed to do whatever they please. Therefore, restrictions are imposed on their actions. However, these restrictions are sometimes not properly enforced, allowing attackers to exploit them to their advantage. Potential attacks include gaining access to other accounts, viewing sensitive files, and modifying user data, among others. In this application, attackers can manipulate user accounts by changing their passwords. For instance, by simply opening the following link: http://127.0.0.1:8000/changepassword/?user=alice&password=attacked, an attacker can swap Alice’s password to “hacked” and gain unauthorized access.
 
-to fix this issue, the application needs to use POST requests instead of relying on GET requests, which can be manipulated, ensure that sensitive actions. Due to the change from GET to POST,  additional CSRF tokens need to be implemented. 
+to fix this issue, the application needs to use POST requests instead of relying on GET requests, which can be manipulated, ensure that sensitive actions. Due to the change from GET to POST,  additional CSRF tokens need to be implemented. However, this is not sufficient enough as you still can easily fake POST calls in the user field. Changes need to be made on how the user is retrieved. 
 
 ## FLAW 4: Security Misconfiguration
 
