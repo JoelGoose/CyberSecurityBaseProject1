@@ -35,7 +35,7 @@ def homePageView(request):
 
 #@login_required ## FLAW 3: implement @login_required
 def changePasswordView(request):
-	user = User.objects.get(username=request.GET.get("user")) ## FLAW 1 & 3: should use 'POST' instead of 'GET'
+	user = User.objects.get(username=request.GET.get("user")) ## FLAW 3: should retrieve user with user = request.user
 	password = request.GET.get('password') ## FLAW 1 & 3: should use 'POST' instead of 'GET'
 	if (password):
 		user.set_password(password)
